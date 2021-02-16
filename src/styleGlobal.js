@@ -23,6 +23,10 @@ export default StyleSheet.create({
         paddingHorizontal: 30,
         paddingVertical: 15,
     },
+    image:{
+        height:320,
+        width:320
+    },
     titlePage: {
         fontSize: 18,
         color: 'white',

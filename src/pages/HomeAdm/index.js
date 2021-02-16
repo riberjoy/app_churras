@@ -13,14 +13,6 @@ export default function HomeAdm() {
         navigation.goBack();
     }
 
-    let churrasco = [{
-        'date': '2021/02/27',
-        'id_part': [{
-            'id': 2,
-            'name': ''
-        }],
-    }]
-
     return (
         <View style={styles.container}>
             <View style={stylesGlobal.header}>
@@ -30,20 +22,7 @@ export default function HomeAdm() {
                     <Ionicons name="exit-outline" size={24} color="white" />
                 </TouchableOpacity>
             </View>
-            <Text>
-                Data Churras
-                Qnt. Pessoas
-                Total Arrecadado.
-
-
-                Total Gasto.
-                Total Gasto em Comida.
-                Total Gasto em Bebida.
-
-
-                Listar Participantes.
-                Listar Convidados.
-            </Text>
+           
         </View>
     );
 }

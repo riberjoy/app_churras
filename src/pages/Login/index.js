@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { View, Text, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StatusBar, Image } from 'react-native';
 
+import stylesGlobal from '../../styleGlobal'
 import styles from './styles';
+import image from '../../../assets/icon_churras_b.png';
+//icon_churras_b.png';
+
 
 export default function Login() {
-    const initialText = 'Usuário';
-    const [user, setUser] = useState(initialText);
-    const [senha, setSenha] = useState('*****');
+    const [user, setUser] = useState();
+    const [senha, setSenha] = useState('');
     const navigation = useNavigation();
 
     function navigationToNewUser() {
@@ -16,10 +19,14 @@ export default function Login() {
     function login(){
         const login_user = 0;
         
-        if(login_user == 1){
+        if(user == 'adm' && senha == 'adm123'){
             navigation.navigate('HomeAdm');
         }else{
-            navigation.navigate('HomeUser');
+            if(user == 'user' && senha == 'user123'){
+                navigation.navigate('HomeUser');
+            }else{
+                alert('Usuário ou senha incorretos')
+            }
         }
     }
 
@@ -27,15 +34,14 @@ export default function Login() {
         <View style={styles.container}>
             <StatusBar backgroundColor="#880000" />
             <View style={styles.header}>
-                <Text style={styles.title}>
-                    LOGIN
-                </Text>
+                <Image source={image} style={stylesGlobal.image} />
             </View>
             <View style={styles.body}>
                 <View style={styles.access}>
                     <Text style={styles.descInp}> USUÁRIO </Text>
                     <TextInput
                         style={styles.input}
+                        placeholder="Usuário"
                         onChangeText={text => setUser(text)}
                         value={user}
                     />
@@ -43,6 +49,8 @@ export default function Login() {
                     <TextInput
                         style={styles.input}
                         textContentType='password'
+                        secureTextEntry={true} 
+                        placeholder='********'
                         onChangeText={text => setSenha(text)}
                         value={senha}
                     />

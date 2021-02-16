@@ -59,6 +59,7 @@ export default function NewUser() {
                 <TextInput
                     style={styles.input}
                     placeholder="********"
+                    secureTextEntry={true} 
                     onChangeText={text => setSenha(text)}
                     value={senha}
                 />
@@ -66,14 +67,11 @@ export default function NewUser() {
                 <TextInput
                     style={styles.input}
                     textContentType='password'
+                    secureTextEntry={true} 
                     placeholder="********"
-                    onChangeText={text => { setConfSenha(text); coonfirmaSenha() }}
+                    onChangeText={text => { setConfSenha(text) }}
+                    onBlur={coonfirmaSenha() }
                     value={confSenha}
-                />
-
-                <TextField
-                    label={'Senha'}
-                    placeholder={'Digite sua senha'}
                 />
 
                 <TouchableOpacity
